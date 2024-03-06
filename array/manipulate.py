@@ -53,3 +53,4 @@ l.extend(l2)
 print(l)
 clear(l)
 
+print(5//2)
