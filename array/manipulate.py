@@ -52,5 +52,5 @@ print("-------extend--------")
 l.extend(l2)
 print(l)
 clear(l)
-
+append(l)
 print(5//2)
