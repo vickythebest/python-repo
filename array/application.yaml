@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: htt
+    username: test
+    password: test
+  jpa:
+    show: true
+server:  
+  servlet:
+    contextPath: /production
+springdoc:
+  swager-ui:
+    path:
+
