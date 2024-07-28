@@ -50,7 +50,7 @@ class doublie_linked_list:
         currentNode=self.previous
         while currentNode:
             print(currentNode.data)
-            currentNode.currentNode.previous
+            currentNode=currentNode.previous
 
 if __name__=="__main__":
     doublie_linked_list=doublie_linked_list()
@@ -58,7 +58,7 @@ if __name__=="__main__":
     doublie_linked_list.insert(11)
     doublie_linked_list.insert(12)
     # doublie_linked_list.display()
-    doublie_linked_list.delete(10)
-    doublie_linked_list.display()
-    # doublie_linked_list.print_reverse()
+    # doublie_linked_list.delete(10)
+    # doublie_linked_list.display()
+    doublie_linked_list.print_reverse()
     
