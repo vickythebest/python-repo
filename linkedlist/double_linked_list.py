@@ -14,15 +14,11 @@ class doublie_linked_list:
         
         if self.head is None:
             self.head=newNode
-            newNode.next=None
-            newNode.previous=self.head
-        else:
-            currentNode=self.head
-            while currentNode.next is not None:
-                currentNode=currentNode.next
-                
-            currentNode.next=newNode
-            currentNode.next.previous=currentNode
+            self.previous=newNode
+            return
+        self.previous.next=newNode
+        newNode.previous=self.previous
+        self.previous=newNode
 
     def insertAt(self,data,pos):
         pass
@@ -33,6 +29,7 @@ class doublie_linked_list:
         if currentNode.data==data:
             self.head=currentNode.next
             currentNode.next.previous=self.head
+            return
         
         while currentNode.next is not None:
             if currentNode.data==data:
@@ -49,6 +46,11 @@ class doublie_linked_list:
             print("->",currentNode.data)
             currentNode=currentNode.next
 
+    def print_reverse(self):
+        currentNode=self.previous
+        while currentNode:
+            print(currentNode.data)
+            currentNode.currentNode.previous
 
 if __name__=="__main__":
     doublie_linked_list=doublie_linked_list()
@@ -56,6 +58,7 @@ if __name__=="__main__":
     doublie_linked_list.insert(11)
     doublie_linked_list.insert(12)
     # doublie_linked_list.display()
-    doublie_linked_list.delete(12)
+    doublie_linked_list.delete(10)
     doublie_linked_list.display()
+    # doublie_linked_list.print_reverse()
     
