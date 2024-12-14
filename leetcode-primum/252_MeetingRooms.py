@@ -8,7 +8,7 @@ class Interval():
         intervals.sort(key=lambda i : i.start)
 
         for i in range(1,len(intervals)):
-            # print(intervals[i-1])
+            # prin t(intervals[i-1])
             i1=intervals[i-1]
             i2=intervals[i]
 

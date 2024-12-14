@@ -46,14 +46,60 @@ class circle_linked_list:
         while stack:
             print(stack.pop())
 
+    def hasCycle(self) -> bool:
+        currentNode=self.head
+        secondNode=self.head
+        if not currentNode:
+            return False
+        
+        if not secondNode.next:
+            return False
+        
+        while currentNode and secondNode.next:
+            if secondNode.next.next:
+                secondNode=secondNode.next.next
+                if currentNode == secondNode:
+                    return True                
+            currentNode=currentNode.next
+ 
+        return False
+
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow=head
+        fast=head
+        
+        if not slow:
+            print("first edge case")
+            return slow
+        
+        if fast.next ==slow:
+            print("second edge case")
+            return fast.next
+        index = 0
+        while slow and fast.next:
+            print("while",index,slow.val)
+            if fast.next.next:
+                print("fast.next")
+                fast=fast.next.next
+                if slow.val ==fast.val:
+                    print("cycle lnkedlist at index :",index)
+                    return fast
+            slow=slow.next
+            index+=1
+                
+        return None
+            
+
 
             
 
 if __name__=="__main__":
     circle_linked_list=circle_linked_list()
-    circle_linked_list.insert(1)
-    circle_linked_list.insert(2)
     circle_linked_list.insert(3)
+    circle_linked_list.insert(2)
+    circle_linked_list.insert(0)
+    circle_linked_list.insert(-4)
     # circle_linked_list.display()
     # circle_linked_list.printReverse()
-    circle_linked_list.printReverseWithStack()
+    # circle_linked_list.printReverseWithStack()
+    print(circle_linked_list.hasCycle())

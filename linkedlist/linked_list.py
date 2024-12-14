@@ -7,10 +7,10 @@ class linkedlist:
     
     def dispalyList(self):
         print("Dispaly List:")
-        linkedlist=self.head
-        while linkedlist is not None:
-            print(linkedlist.data)
-            linkedlist=linkedlist.next
+        current=self.head
+        while current:
+            print(current.data)
+            current=current.next
 
     def insert(self,data):
         # print(f"Insert: {data} in linkedlist")
@@ -67,16 +67,51 @@ class linkedlist:
     def displayRecursive(self):
         self.displayReverse(self.head)
 
+    def removeNthFromEnd(self, n: int) -> Node:
+        currentNode=self.head
+        lefttNode=self.head
+
+        if not currentNode:
+            return self.head
+        
+        index=0
+        delIndex=n
+        while currentNode:
+            currentNode=currentNode.next
+            index+=1
+            if index == delIndex:
+                lefttNode=lefttNode.next
+                delIndex=delIndex+n
+        
+        lefttNode.next=lefttNode.next.next
+
+
+    def reverseLinkedlist(self):
+        currentNode=self.head
+        previous=None
+
+        while currentNode:
+            nxt=currentNode.next
+            currentNode.next=previous
+            previous=currentNode
+            currentNode=nxt
+        self.head=previous
+        return previous
+
+
 if __name__=="__main__":
     linkedlist= linkedlist()
     linkedlist.insert(10)
     linkedlist.insert(20)
     linkedlist.insert(130)
-    linkedlist.insertAtFront(5)
+    # linkedlist.insertAtFront(5)
     linkedlist.insert(150)
     
     # linkedlist.delete(5)
     # linkedlist.delete(130)
     # print(linkedlist.isEmpty())
     # linkedlist.dispalyList()
-    linkedlist.displayRecursive()
+    # linkedlist.displayRecursive()
+    # linkedlist.removeNthFromEnd(2)
+    linkedlist.reverseLinkedlist()
+    linkedlist.dispalyList()

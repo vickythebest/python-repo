@@ -36,8 +36,8 @@ class binaryTree(object):
     def postorder_print(self,start,traversal):
         """Left-->Right-->Root"""
         if start:
-            traversal=self.postorder_print(start.left,traversal)
-            traversal=self.postorder_print(start.right,traversal)
+            traversal=self.inorder_print(start.left,traversal)
+            traversal=self.inorder_print(start.right,traversal)
             traversal+=(str(start.value)+"-")
         return traversal
 
